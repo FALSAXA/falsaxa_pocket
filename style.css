@@ -58,8 +58,6 @@ input,select,textarea,button{
   margin-bottom:10px;
 }
 
-textarea{min-height:80px}
-
 button{cursor:pointer}
 button:active{transform:scale(.96)}
 
@@ -80,17 +78,19 @@ li{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:8px;
   box-shadow:0 0 18px var(--glow);
 }
 
-li.masuk{
-  border-color:var(--green);
-  color:var(--green);
-}
+li.masuk{border-color:var(--green);color:var(--green)}
+li.keluar{border-color:var(--red);color:var(--red)}
 
-li.keluar{
-  border-color:var(--red);
-  color:var(--red);
+.hapus{
+  width:auto;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:12px;
+  background:#020617;
 }
 
 .grid{
