@@ -16,49 +16,27 @@
   <div class="card saldo">
     <p>Saldo</p>
     <h1>Rp <span id="saldo">0</span></h1>
+    <p>Cash</p>
+    <h1>Rp <span id="cash">0</span></h1>
   </div>
 
   <div class="card">
     <input id="nominal" type="number" placeholder="Nominal">
+
+    <select id="media">
+      <option value="saldo">SALDO</option>
+      <option value="cash">CASH</option>
+    </select>
+
     <select id="tipe">
       <option value="masuk">MASUK</option>
       <option value="keluar">KELUAR</option>
     </select>
+
     <button class="primary" onclick="tambah()">Tambah</button>
   </div>
 
   <ul id="list"></ul>
-</section>
-
-<section id="kalkulator" class="page">
-  <h2>🧮 Kalkulator</h2>
-  <div class="calc-wrap">
-    <div id="calcDisplay" class="calc-display">0</div>
-    <div class="calc-grid">
-      <button class="calc-ac" onclick="calcClear()">AC</button>
-      <button class="calc-op" onclick="calcInput('/')">÷</button>
-      <button class="calc-op" onclick="calcInput('*')">×</button>
-      <button class="calc-op" onclick="calcDel()">⌫</button>
-
-      <button onclick="calcInput('7')">7</button>
-      <button onclick="calcInput('8')">8</button>
-      <button onclick="calcInput('9')">9</button>
-      <button class="calc-op" onclick="calcInput('-')">−</button>
-
-      <button onclick="calcInput('4')">4</button>
-      <button onclick="calcInput('5')">5</button>
-      <button onclick="calcInput('6')">6</button>
-      <button class="calc-op" onclick="calcInput('+')">+</button>
-
-      <button onclick="calcInput('1')">1</button>
-      <button onclick="calcInput('2')">2</button>
-      <button onclick="calcInput('3')">3</button>
-      <button class="calc-eq" onclick="calcEqual()">=</button>
-
-      <button onclick="calcInput('0')">0</button>
-      <button onclick="calcInput('.')">.</button>
-    </div>
-  </div>
 </section>
 
 <section id="kalender" class="page">
@@ -95,7 +73,6 @@
 
 <nav class="bottom-nav">
   <button class="active" onclick="buka('keuangan',this)">💰<br>Keuangan</button>
-  <button onclick="buka('kalkulator',this)">🧮<br>Kalkulator</button>
   <button onclick="buka('kalender',this)">📅<br>Kalender</button>
   <button onclick="buka('catatan',this)">📝<br>Catatan</button>
 </nav>
@@ -103,4 +80,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
