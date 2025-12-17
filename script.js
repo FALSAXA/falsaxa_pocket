@@ -50,5 +50,5 @@ function render() {
   cashEl.textContent = c.toLocaleString('id-ID')
 }
 
-// Inisialisasi
 render()
+
