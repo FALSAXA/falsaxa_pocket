@@ -8,13 +8,13 @@ function buka(id,btn){
   btn.classList.add('active')
 }
 
-/* keuangan */
 function tambah(){
   const n = Number(nominal.value)
   if(!n) return
   transaksi.push({
     n:n,
     t:tipe.value,
+    m:media.value,
     w:new Date().toISOString().split('T')[0]
   })
   nominal.value=''
@@ -34,50 +34,25 @@ function simpan(){
 
 function render(){
   let saldoVal=0
+  let cashVal=0
   list.innerHTML=''
   transaksi.forEach((x,i)=>{
-    saldoVal += x.t==='masuk' ? x.n : -x.n
+    const val = x.t==='masuk'?x.n:-x.n
+    if(x.m==='saldo') saldoVal+=val
+    if(x.m==='cash') cashVal+=val
     list.innerHTML+=`
       <li class="${x.t}">
         <div class="${x.t==='masuk'?'label-masuk':'label-keluar'}">
-          ${x.t.toUpperCase()}<br>Rp ${x.n.toLocaleString('id-ID')}
+          ${x.t.toUpperCase()} ${x.m.toUpperCase()}<br>
+          Rp ${x.n.toLocaleString('id-ID')}
         </div>
         <button class="hapus" onclick="hapus(${i})">✕</button>
       </li>`
   })
   saldo.textContent=saldoVal.toLocaleString('id-ID')
+  cash.textContent=cashVal.toLocaleString('id-ID')
 }
 
-/* kalkulator */
-let calcVal=''
-const calcDisplay=document.getElementById('calcDisplay')
-
-function calcInput(v){
-  calcVal+=v
-  calcDisplay.textContent=calcVal
-}
-
-function calcClear(){
-  calcVal=''
-  calcDisplay.textContent='0'
-}
-
-function calcDel(){
-  calcVal=calcVal.slice(0,-1)
-  calcDisplay.textContent=calcVal||'0'
-}
-
-function calcEqual(){
-  try{
-    calcVal=eval(calcVal).toString()
-    calcDisplay.textContent=calcVal
-  }catch{
-    calcDisplay.textContent='0'
-    calcVal=''
-  }
-}
-
-/* catatan */
 function simpanCatatan(){
   if(!note.value) return
   notes.push(note.value)
@@ -103,7 +78,6 @@ function renderNote(){
   })
 }
 
-/* kalender */
 let today=new Date()
 let currentMonth=today.getMonth()
 let currentYear=today.getFullYear()
@@ -137,7 +111,7 @@ function selectDate(d,el){
     kalenderList.innerHTML+=`
       <li class="${x.t}">
         <span class="${x.t==='masuk'?'label-masuk':'label-keluar'}">
-          ${x.t.toUpperCase()} - Rp ${x.n.toLocaleString('id-ID')}
+          ${x.t.toUpperCase()} ${x.m.toUpperCase()} - Rp ${x.n.toLocaleString('id-ID')}
         </span>
       </li>`
   })
