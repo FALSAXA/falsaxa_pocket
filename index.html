@@ -21,16 +21,18 @@
   </div>
 
   <div class="card">
-    <input id="nominal" type="number" placeholder="Nominal">
-    <select id="media">
-      <option value="saldo">SALDO</option>
-      <option value="cash">CASH</option>
-    </select>
-    <select id="tipe">
-      <option value="masuk">MASUK</option>
-      <option value="keluar">KELUAR</option>
-    </select>
-    <button class="primary" onclick="tambah()">Tambah</button>
+    <div class="input-group">
+      <input id="nominal" type="number" placeholder="Nominal">
+      <select id="media">
+        <option value="saldo">SALDO</option>
+        <option value="cash">CASH</option>
+      </select>
+      <select id="tipe">
+        <option value="masuk">MASUK</option>
+        <option value="keluar">KELUAR</option>
+      </select>
+      <button class="primary" onclick="tambah()">Tambah</button>
+    </div>
   </div>
 
   <ul id="list"></ul>
